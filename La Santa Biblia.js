@@ -1,11 +1,9 @@
+cfg.Portrait, cfg.Light, cfg.MUI;
 
 var c = 0;
 //Called when application is started.
 function OnStart()
 {    
-    //Lock screen orientation to Portrait.
-    app.SetOrientation( "Portrait" )
-    
 	//Create the main app layout.
 	layMain = app.CreateLayout( "Linear", "FillXY" );
 	layMain.SetBackColor( "#ffffff" );
@@ -18,18 +16,22 @@ function OnStart()
 	layContent = app.AddLayout( layMain, "Linear", "Top,HCenter,FillXY" );
     layContent.SetSize( 1, 0.95 );
     
-    CreateContent()
+    //CreateContent()
     
 	//Create a text label and add it to main layout.
-	txt = app.AddText( layMain, "<-- arrastra desde la izquierda" )
-	txt.SetTextSize( 24, "dip" )
+	//txt = app.AddText( layMain, "<-- arrastra desde la izquierda" )
+//	txt.SetTextSize( 24, "dip" )
 	
 	//Add main layout and drawer to app.	
 	app.AddLayout( layMain )
+	app.ShowProgress( "Cargando ..." )
+	app.Wait(1, false);
+	CreateContent()
+	
 	app.AddDrawer( drawerScroll, "Left", drawerWidth )
 	//Create main content.
     
-	
+	app.HideProgress();
 	ReadText();
 	
 	
@@ -79,11 +81,12 @@ function CreateActionBar()
     layBar = app.AddLayout( layMain, "Card", "Horizontal,FillX" )
     layBar.SetElevation( 10 )
     layBar.SetBackColor( "#4285F4" )
+    layBar.SetSize( 1.0, 0.085 )
     
     //Add title text.
-    txtBarTitle = app.AddText( layBar, app.GetAppName(), 1 )
-    txtBarTitle.SetPadding( 12,10,12,10, "dip" )
-    txtBarTitle.SetTextSize( 26 )
+    txtBarTitle = app.AddText( layBar, "La Santa Biblia", 1 )
+    txtBarTitle.SetPadding( 12,2,12,10, "dip" )
+    txtBarTitle.SetTextSize( 28 )
     txtBarTitle.SetTextColor( "#ffffff" )
     txtBarTitle.SetTextShadow( 5,0,0,"#696969" )
     txtBarTitle.SetFontFile( "Misc/Bokor-Regular.ttf" )
@@ -201,6 +204,6 @@ function ReadText()
 	curLine = txtContent.GetText().split(".")[c];
 	c++;
 	txtContent2.SetText( curLine);
-	app.TextToSpeech( curLine, 1, 1, ReadText, "music", "es-mx" );
+	app.TextToSpeech( curLine, 1, 1, ReadText, "music", "es-do" );
 	
 }
