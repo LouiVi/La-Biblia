@@ -128,7 +128,7 @@ function CreateDrawer()
 	layDrawer.AddChild( layDrawerTop )
 	
 	//Add an icon to top layout.
-	var img = app.AddImage( layDrawerTop, "Img/La Biblia.png", 0.15 )
+	var img = app.AddImage( layDrawerTop, "Img/La Santa Biblia.png", 0.15 )
 	img.SetPosition( drawerWidth*0.06, 0.04 )
 	
 	//Add user name to top layout.
