@@ -1,5 +1,4 @@
 cfg.Portrait, cfg.Light, cfg.MUI;
-
 app.LoadPlugin( "Utils" );
 var c = 0;
 const loc = ["es-ar","es-bo","es-cl","es-do","es-pa","es-cr","es-mx","es-pr","es-ve","es-uy","es-es",,"es-py","es-ni","es-hn","es-pe","es-gt","es-sv","es-ec","es-co","en-ca","en-us","sv-se","de-de","fr-fr","en-tt"];
